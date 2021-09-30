@@ -17,20 +17,30 @@
 package com.example.android.diceroller
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.android.diceroller.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        //setContentView(R.layout.activity_main)
 
         // TODO (02) Use findViewById to get a reference to the button
         // and assign it to an immutable variable called rollButton
+        val rollButton = binding.rollButton
 
         // TODO (03) set the OnClickListener for the button
-
         // TODO (04) Show a Toast when the OnClickListener is called
+        rollButton.setOnClickListener {
+            Toast.makeText(this,"Button Clicked !¡!",Toast.LENGTH_LONG).show()
+        }
 
     }
 
